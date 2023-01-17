@@ -1,7 +1,7 @@
 const {Users, Thought} = require('../models');
 
 module.exports = {
-getThought(req, res){
+getThoughts(req, res){
     User.find({})
     .then((user) => res.json(user))
     .catch((err) => res.status(500).json(err));
@@ -18,7 +18,7 @@ getSingleThought(req, res) {
       .catch((err) => res.status(500).json(err));
   },
 
-  createThought(req, res) {
+  createThoughts(req, res) {
     Thought.create(req.body)
       .then(({ _id }) => {
         return User.findOneAndUpdate(
@@ -35,7 +35,7 @@ getSingleThought(req, res) {
       .catch((err) => res.status(500).json(err));
   },
   
-  updateThought(req, res) {
+  updateThoughts(req, res) {
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
       { $set: req.body },
@@ -49,7 +49,7 @@ getSingleThought(req, res) {
       .catch((err) => res.status(500).json(err));
   },
 
-  deleteThought(req, res) {
+  deleteThoughts(req, res) {
     Thought.findOneAndDelete({ _id: req.params.thoughtId })
       .then((thought) =>
         !thought
@@ -68,7 +68,7 @@ getSingleThought(req, res) {
       .catch((err) => res.status(500).json(err));
   },
 
-  createReaction(req, res) {
+  addReaction(req, res) {
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
       { $addToSet: { reactions: req.body } },

@@ -18,7 +18,7 @@ getSingleUser(req, res) {
       .catch((err) => res.status(500).json(err));
   },
 
-  createUser(req, res) {
+createUsers(req, res) {
     User.create(req.body)
       .then((user) => res.json(user))
       .catch((err) => {
@@ -27,7 +27,7 @@ getSingleUser(req, res) {
       });
   },
   
-  updateUser(req, res) {
+  updateUsers(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.userId },
       { $set: req.body },
@@ -41,7 +41,7 @@ getSingleUser(req, res) {
       .catch((err) => res.status(500).json(err));
   },
 
-  deleteUser(req, res) {
+  deleteUsers(req, res) {
     User.findOneAndDelete({ _id: req.params.userId })
       .then((user) =>
         !user
