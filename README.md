@@ -1,7 +1,7 @@
 # Social-Network-API
 
 ## Installation
-Run the command npm i to install the necessary technologies. Run node server.js to run server locally.
+Run the command npm i to install the necessary technologies. Run "npm run start" to run server locally.
 
 ## Usage
 This social media application allows users to share their thoughts, react to other users thoughts and create a friend list. 
